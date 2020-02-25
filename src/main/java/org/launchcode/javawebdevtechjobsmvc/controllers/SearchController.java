@@ -27,7 +27,7 @@ public class SearchController {
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         ArrayList<Job> jobs;
-
+        // allows all types to be searched for a term under 'all' instead of restricting to a certain type
         if ((searchType.equals("all") && searchTerm.equals(null)) || searchTerm.equals(null)){
             jobs = JobData.findAll();
         } else {
